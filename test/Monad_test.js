@@ -61,17 +61,29 @@ exports['Monad'] = {
         test.done();
     },
     'Some': function (test) {
-        test.expect(2);
+        test.expect(3);
         var some = new M.Some(1);
         test.equal(some.get, 1, "should get proper value");
         test.equal(some.isDefined(), true, "isDefined should work");
+        test.ok(some instanceof M.Some, "some should be of an instance of some");
         test.done();
     },
     'None': function (test) {
         test.expect(1);
-        var none = new  M.None();
+        var none = new M.None();
         test.equal(none.isDefined(), false, "should get proper value");
         test.done();
+    },
+    'match option': function(test){
+        test.expect(1);
+        var opt = new M.Some("match");
+        var ret = opt.match(
+            M.case(M.Some, function(value){
+                console.log(value);
+                return value;}),
+            M.case(M.None, function(){ return "none";})
+        );
+        test.equal( ret, "match", "")
+        test.done();
     }
-
 };
