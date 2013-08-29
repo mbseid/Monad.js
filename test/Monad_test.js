@@ -96,5 +96,23 @@ exports['Monad'] = {
         test.equal(result, "I got the left side", "should return the left side of the either");
 
         test.done();
+    },
+    'fold either': function(test){
+        test.expect(2);
+
+        var left = new M.Left("lefty");
+        var right = new M.Right("righty");
+
+        var identity = function(value) {
+            return value;
+        }
+
+        var expectLeft = left.fold(identity, identity);
+        test.equal(expectLeft, "lefty", "this should return the left, as it takes priroity");
+        var expectRight = right.fold(identity, identity);
+        test.equal(expectRight, "righty", "this should return the right, as it doesn't have the left");
+        test.done();
+
+
     }
 };
