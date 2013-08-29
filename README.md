@@ -7,8 +7,9 @@ Bringing Monads to JS -- Heavily Inspired by Scala
 Install the module with: `npm install Monad`
 
 ```javascript
-var Monad = require('Monad');
-Monad.awesome(); // "awesome"
+var M = require('Monad');
+var opt = new M.Option(null);
+opt.getOrElse( "monads are awesome"); // "monads are awesome"
 ```
 
 ### In the browser
@@ -22,7 +23,12 @@ In your web page:
 ```html
 <script src="dist/Monad.min.js"></script>
 <script>
-awesome(); // "awesome"
+var opt = new Some(document.getElementById("foobar"));
+var id = opt.match(
+    M.case(M.Some, function(element){ return element.getAttribute("id") }),
+    M.case(N.None, function(){ return createFoobar(); }
+); //elementId
+
 </script>
 ```
 
@@ -30,11 +36,11 @@ In your code, you can attach Monad's methods to any object.
 
 ```html
 <script>
-var exports = Bocoup.utils;
+var exports = M;
 </script>
 <script src="dist/Monad.min.js"></script>
 <script>
-Bocoup.utils.awesome(); // "awesome"
+var left = new M.Left("lefty value");
 </script>
 ```
 
@@ -50,7 +56,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 _Also, please don't edit files in the "dist" subdirectory as they are generated via Grunt. You'll find source code in the "lib" subdirectory!_
 
 ## Release History
-_(Nothing yet)_
+08/29/13 - version 0.1
 
 ## License
 Copyright (c) 2013 Michael Seid  

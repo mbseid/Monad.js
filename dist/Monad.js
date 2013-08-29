@@ -1,11 +1,6 @@
-/*
- * Monad
- * https://github.com/mbseid/Monad.js
- *
- * Copyright (c) 2013 Michael Seid
- * Licensed under the MIT license.
- */
-
+/*! Monad - v0.1.0 - 2013-08-29
+* https://github.com/mbseid/Monad.js
+* Copyright (c) 2013 Michael Seid; Licensed MIT */
 (function (exports, undefined) {
 
     'use strict';

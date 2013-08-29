@@ -83,16 +83,16 @@ exports['Monad'] = {
             }),
             M.case(M.None, function(){ return "none";})
         );
-        test.equal( ret, "match", "should return the balue from the match")
+        test.equal( ret, "match", "should return the balue from the match");
         test.done();
     },
     'match either': function(test){
         test.expect(1);
         var either = new M.Left("first");
         var result = either.match(
-            M.case(M.Left, function(value ){ return "I got the left side";}),
+            M.case(M.Left, function (){ return "I got the left side";}),
             M.case(M.Right, function(){ return "I got the right side";})
-        )
+        );
         test.equal(result, "I got the left side", "should return the left side of the either");
 
         test.done();
@@ -105,7 +105,7 @@ exports['Monad'] = {
 
         var identity = function(value) {
             return value;
-        }
+        };
 
         var expectLeft = left.fold(identity, identity);
         test.equal(expectLeft, "lefty", "this should return the left, as it takes priroity");
