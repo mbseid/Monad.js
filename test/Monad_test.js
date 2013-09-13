@@ -114,5 +114,14 @@ exports['Monad'] = {
         test.done();
 
 
+    },
+    'map option': function(test){
+        test.expect(1);
+        var opt = new M.Option(3);
+        var newOpt = opt.map(function(item){ return item * 3;});
+
+        test.equal(newOpt.get, 9, "the map should be equal");
+        test.done();
+
     }
 };

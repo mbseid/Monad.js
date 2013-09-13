@@ -1,9 +1,11 @@
-/*! Monad - v0.1.0 - 2013-08-29
+/*! Monad - v0.1.0 - 2013-09-13
 * https://github.com/mbseid/Monad.js
 * Copyright (c) 2013 Michael Seid; Licensed MIT */
 (function (exports, undefined) {
 
     'use strict';
+    var version = 0.1,
+        hasModule = (typeof module !== 'undefined' && module.exports);
 
     var isFunction = function (functionToCheck) {
         var getType = {};
@@ -102,5 +104,18 @@
     exports.Left.prototype = exports.Either.prototype;
     exports.Right = symbol;
     exports.Right.prototype = exports.Either.prototype;
+
+    /**
+     * Exporting time!
+     */
+    // CommonJS module is defined
+    if (hasModule) {
+        exports = exports;
+    }else if (typeof ender === 'undefined') {
+        // here, `this` means `window` in the browser, or `global` on the server
+        // add `moment` as a global object via a string identifier,
+        // for Closure Compiler "advanced" mode
+        this['M'] = exports;
+    }
 
 }(typeof exports === 'object' && exports || this));
