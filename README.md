@@ -58,20 +58,18 @@ nullOption.isDefined(); // false
 nullOption.getOrElse("String is Null"); // "String is Null"
 nullOption.map(function(item){ return item * 3}; // M.None
 ```
-
-####Either:
+Matching:
 ```javascript
 var opt = new M.Some(document.getElementById("foobar"));
 var id = opt.match(
     M.case(M.Some, function(element){ return element.getAttribute("id") }),
     M.case(N.None, function(){ return createFoobar(); }
 ); //elementId
-
-opt.fold(
-    function(item){ //do something if opt is of type Left },
-    function(item){ //do something if opt is of type Right }
-    );
 ```
+####Either:
+_(To be completed)_
+
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
