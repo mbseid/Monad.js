@@ -43,7 +43,7 @@ I varied from the exact specifications of the Scala monads to embrace javascript
 
 
 ## Examples
-###Option:
+####Option:
 
 ```javascript
 var option = new M.Option(3);
@@ -59,7 +59,7 @@ nullOption.getOrElse("String is Null"); // "String is Null"
 nullOption.map(function(item){ return item * 3}; // M.None
 ```
 
-Either:
+####Either:
 ```javascript
 var opt = new M.Some(document.getElementById("foobar"));
 var id = opt.match(
